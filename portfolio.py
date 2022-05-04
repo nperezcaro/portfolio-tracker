@@ -76,3 +76,16 @@ price_square = float(get_stock_price(ticker_1, api_key))
 price_nvidia = df_8.iloc[0,3]
 price_blackrock = df_9.iloc[0,3]
 price_usd = trm.iloc[0,3]
+
+
+price_assets = [price_ecopetrol, price_jpmorgan, price_tsm, price_ferrari, price_cisco, price_gold, price_square, price_nvidia, price_blackrock]
+
+
+price_assets_cop = []
+for i in price_assets:
+    if i == price_ecopetrol:
+        price_assets_cop.append(i * 1)
+    else:
+        price_assets_cop.append(round(i * price_usd, 2))
+
+print(price_assets_cop)
