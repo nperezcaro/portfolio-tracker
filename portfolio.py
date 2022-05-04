@@ -44,4 +44,6 @@ def get_stock_price(ticker_symbol, api):
     return(price)
 
 
+ticker = 'RACE'
+ticker_1 = 'SQ'
 api_key = '6dfc647b94304214a16389174d0a47f8'
