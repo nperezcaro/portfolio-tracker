@@ -102,6 +102,6 @@ print(f"The current value of the portfolio's asset position: {net_financial_posi
 
 relative_delta = (net_financial_position - initial_investment) / initial_investment
 absolute_delta = net_financial_position - initial_investment
-print('Lo cual implica la siguiente variación:')
-print(f'Delta relativo:','{percent:.2%}'.format(percent=relative_delta))
-print(f'Delta absoluto:', moneyfmt(Decimal(absolute_delta), 2, '$', ','))
+print('This implies the following variation:')
+print(f'Relative Delta:','{percent:.2%}'.format(percent=relative_delta))
+print(f'Absolute Delta:', moneyfmt(Decimal(absolute_delta), 2, '$', ','))
