@@ -47,3 +47,32 @@ def get_stock_price(ticker_symbol, api):
 ticker = 'RACE'
 ticker_1 = 'SQ'
 api_key = '6dfc647b94304214a16389174d0a47f8'
+
+
+get_stock_price(ticker, api_key)
+get_stock_price(ticker_1,api_key)
+
+
+#Import price of the other assets using Investpy
+    #The prices of the other two stocks (above) could not be imported with Investpy
+df_1 = investpy.stocks.get_stock_recent_data('Eco','Colombia',False)
+df_2 = investpy.stocks.get_stock_recent_data('JPM','United States',False)
+df_3 = investpy.stocks.get_stock_recent_data('TSM','United States',False)
+df_5 = investpy.stocks.get_stock_recent_data('CSCO','United States',False)
+df_6 = investpy.commodities.get_commodity_recent_data('Gold')
+df_8 = investpy.stocks.get_stock_recent_data('NVDA','United States',False)
+df_9 = investpy.stocks.get_stock_recent_data('BLK','United States',False)
+trm = investpy.currency_crosses.get_currency_cross_recent_data('USD/COP')
+
+
+#Conversion of prices (they come as dataframes) to variables in order to perform operations
+price_ecopetrol = df_1.iloc[0,3]
+price_jpmorgan = df_2.iloc[0,3]
+price_tsm = df_3.iloc[0,3]
+price_ferrari = float(get_stock_price(ticker, api_key))
+price_cisco = df_5.iloc[0,3]
+price_gold = df_6.iloc[0,3]
+price_square = float(get_stock_price(ticker_1, api_key))
+price_nvidia = df_8.iloc[0,3]
+price_blackrock = df_9.iloc[0,3]
+price_usd = trm.iloc[0,3]
