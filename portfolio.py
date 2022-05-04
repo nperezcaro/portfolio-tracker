@@ -89,3 +89,19 @@ for i in price_assets:
         price_assets_cop.append(round(i * price_usd, 2))
 
 print(price_assets_cop)
+
+
+amount_of_assets = [17583.31, 46.01, 46.77, 24.40, 45.65, 0.51, 10.31, 5.29, 1.74]
+
+
+#Profitability summary
+net_financial_position = float(np.dot(price_assets_cop, amount_of_assets))
+net_financial_position_text = moneyfmt(Decimal(float(np.dot(price_assets_cop, amount_of_assets))), 2, '$', ',')
+print(f"The current value of the portfolio's asset position: {net_financial_position_text}")
+
+
+relative_delta = (net_financial_position - initial_investment) / initial_investment
+absolute_delta = net_financial_position - initial_investment
+print('Lo cual implica la siguiente variación:')
+print(f'Delta relativo:','{percent:.2%}'.format(percent=relative_delta))
+print(f'Delta absoluto:', moneyfmt(Decimal(absolute_delta), 2, '$', ','))
