@@ -113,3 +113,4 @@ absolute_delta = net_financial_position - initial_investment
 print('This implies the following variation:')
 print(f'Relative Delta:','{percent:.2%}'.format(percent=relative_delta))
 print(f'Absolute Delta:', moneyfmt(Decimal(absolute_delta), 2, '$', ','))
+print("End")
