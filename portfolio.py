@@ -99,7 +99,7 @@ for result in results:
         price_assets_cop.append(round(result * exchange_rate, 2))
 
 
-amount_of_assets = [17583.31, 46.01, 46.77, 24.40, 45.65, 0.51, 10.31, 5.29, 1.74]
+amount_of_assets = [1.74, 5.29, 0.51, 45.65, 24.40, 46.77, 46.01]
 
 
 #Profitability summary
