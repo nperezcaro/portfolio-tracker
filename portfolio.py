@@ -66,30 +66,37 @@ def _get_currencycross_data(ticker):
     return investpy.currency_crosses.get_currency_cross_recent_data(ticker)
 
 
-#Conversion of prices (they come as dataframes) to variables in order to perform operations
-price_ecopetrol = df_1.iloc[0,3]
-price_jpmorgan = df_2.iloc[0,3]
-price_tsm = df_3.iloc[0,3]
-price_ferrari = float(get_stock_price(ticker, api_key))
-price_cisco = df_5.iloc[0,3]
-price_gold = df_6.iloc[0,3]
-price_square = float(get_stock_price(ticker_1, api_key))
-price_nvidia = df_8.iloc[0,3]
-price_blackrock = df_9.iloc[0,3]
-price_usd = trm.iloc[0,3]
+stocks = [
+    ('Eco', 'Colombia'),
+    ('JPM', 'United States'),
+    ('TSM', 'United States'),
+    ('CSCO', 'United States'),
+    ('NVDA', 'United States'),
+    ('BLK', 'United States'),
+    ]
+
+commodities = ['Gold']
+
+exchange_rate = float(_get_currencycross_data('USD/COP').iloc[0,3])
 
 
-price_assets = [price_ecopetrol, price_jpmorgan, price_tsm, price_ferrari, price_cisco, price_gold, price_square, price_nvidia, price_blackrock]
+results = []
+
+for stock in stocks:
+    result = _get_asset_data(*stock).iloc[0,3]
+    results.append(result)
+
+for commoditie in commodities:
+    result = _get_commodities_data(commoditie).iloc[0,3]
+    results.append(result)
 
 
 price_assets_cop = []
-for i in price_assets:
-    if i == price_ecopetrol:
-        price_assets_cop.append(i * 1)
+for result in results:
+    if result == results[:1]:
+        price_assets_cop.append(result * 1)
     else:
-        price_assets_cop.append(round(i * price_usd, 2))
-
-print(price_assets_cop)
+        price_assets_cop.append(round(result * exchange_rate, 2))
 
 
 amount_of_assets = [17583.31, 46.01, 46.77, 24.40, 45.65, 0.51, 10.31, 5.29, 1.74]
