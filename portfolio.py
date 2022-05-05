@@ -53,16 +53,17 @@ get_stock_price(ticker, api_key)
 get_stock_price(ticker_1,api_key)
 
 
-#Import price of the other assets using Investpy
-    #The prices of the other two stocks (above) could not be imported with Investpy
-df_1 = investpy.stocks.get_stock_recent_data('Eco','Colombia',False)
-df_2 = investpy.stocks.get_stock_recent_data('JPM','United States',False)
-df_3 = investpy.stocks.get_stock_recent_data('TSM','United States',False)
-df_5 = investpy.stocks.get_stock_recent_data('CSCO','United States',False)
-df_6 = investpy.commodities.get_commodity_recent_data('Gold')
-df_8 = investpy.stocks.get_stock_recent_data('NVDA','United States',False)
-df_9 = investpy.stocks.get_stock_recent_data('BLK','United States',False)
-trm = investpy.currency_crosses.get_currency_cross_recent_data('USD/COP')
+#Create functions to pull the diferent price of assets
+def _get_asset_data(ticker, country, state=False):
+    return investpy.stocks.get_stock_recent_data(ticker, country, state)
+
+
+def _get_commodities_data(ticker):
+    return investpy.commodities.get_commodity_recent_data(ticker)
+
+
+def _get_currencycross_data(ticker):
+    return investpy.currency_crosses.get_currency_cross_recent_data(ticker)
 
 
 #Conversion of prices (they come as dataframes) to variables in order to perform operations
