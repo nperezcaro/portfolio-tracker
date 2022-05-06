@@ -44,13 +44,8 @@ def get_stock_price(ticker_symbol, api):
     return(price)
 
 
-ticker = 'RACE'
-ticker_1 = 'SQ'
+tickers = ['RACE', 'SQ']
 api_key = '6dfc647b94304214a16389174d0a47f8'
-
-
-get_stock_price(ticker, api_key)
-get_stock_price(ticker_1,api_key)
 
 
 #Create functions to pull the diferent price of assets
@@ -88,6 +83,11 @@ for stock in stocks:
 
 for commoditie in commodities:
     result = _get_commodities_data(commoditie).iloc[0,3]
+    results.append(result)
+
+
+for ticker in tickers:
+    result = get_stock_price(*ticker,api_key)
     results.append(result)
 
 
