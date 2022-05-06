@@ -87,8 +87,8 @@ for commoditie in commodities:
 
 
 for ticker in tickers:
-    result = get_stock_price(*ticker,api_key)
-    results.append(result)
+    result = get_stock_price(ticker,api_key)
+    results.append(float(result))
 
 
 price_assets_cop = []
@@ -99,7 +99,7 @@ for result in results:
         price_assets_cop.append(round(result * exchange_rate, 2))
 
 
-amount_of_assets = [1.74, 5.29, 0.51, 45.65, 24.40, 46.77, 46.01]
+amount_of_assets = [1.74, 5.29, 0.51, 45.65, 24.40, 46.77, 46.01, 25.00, 25.00]
 
 
 #Profitability summary
